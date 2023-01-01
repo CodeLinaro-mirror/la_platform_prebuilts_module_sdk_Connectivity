@@ -14,6 +14,7 @@ apex_contributions_defaults {
         "prebuilt_framework-connectivity-t",
         "prebuilt_framework-connectivity-b",
         "prebuilt_framework-tethering",
+        "prebuilt_libnetd_updatable",
     ],
 }
 
@@ -226,6 +227,43 @@ license {
     name: "tethering-module-sdk_opensourcerequest",
     visibility: ["//visibility:private"],
     license_text: ["licenses/build/soong/licenses/opensourcerequest"],
+}
+
+cc_prebuilt_library_shared {
+    name: "libnetd_updatable",
+    visibility: ["//visibility:public"],
+    apex_available: ["com.android.tethering"],
+    licenses: ["tethering-module-sdk_Android-Apache-2.0"],
+    stl: "none",
+    compile_multilib: "both",
+    export_include_dirs: ["include/packages/modules/Connectivity/bpf/netd/include"],
+    sanitize: {
+        cfi: true,
+    },
+    stubs: {
+        versions: [
+            "1",
+            "current",
+        ],
+        symbol_file: "libnetd_updatable.map.txt",
+    },
+    arch: {
+        arm64: {
+            srcs: ["arm64/lib/libnetd_updatable.so"],
+        },
+        x86_64: {
+            srcs: ["x86_64/lib/libnetd_updatable.so"],
+        },
+        arm: {
+            srcs: ["arm/lib/libnetd_updatable.so"],
+        },
+        x86: {
+            srcs: ["x86/lib/libnetd_updatable.so"],
+        },
+    },
+    strip: {
+        none: true,
+    },
 }
 
 prebuilt_systemserverclasspath_fragment {
