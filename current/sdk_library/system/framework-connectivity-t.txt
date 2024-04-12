@@ -417,8 +417,7 @@ package android.net.nsd {
 
 package android.net.thread {
 
-  @FlaggedApi("com.android.net.thread.flags.thread_enabled") public final class ActiveOperationalDataset implements android.os.Parcelable {
-    method @NonNull public static android.net.thread.ActiveOperationalDataset createRandomDataset();
+  public final class ActiveOperationalDataset implements android.os.Parcelable {
     method public int describeContents();
     method @NonNull public static android.net.thread.ActiveOperationalDataset fromThreadTlvs(@NonNull byte[]);
     method @NonNull public android.net.thread.OperationalDatasetTimestamp getActiveTimestamp();
@@ -471,7 +470,7 @@ package android.net.thread {
     field public static final int LENGTH_MIN_SECURITY_POLICY_FLAGS = 1; // 0x1
   }
 
-  @FlaggedApi("com.android.net.thread.flags.thread_enabled") public final class OperationalDatasetTimestamp {
+  public final class OperationalDatasetTimestamp {
     ctor public OperationalDatasetTimestamp(@IntRange(from=0, to=281474976710655L) long, @IntRange(from=0, to=32767) int, boolean);
     method @NonNull public static android.net.thread.OperationalDatasetTimestamp fromInstant(@NonNull java.time.Instant);
     method @IntRange(from=0, to=281474976710655L) public long getSeconds();
@@ -480,7 +479,7 @@ package android.net.thread {
     method @NonNull public java.time.Instant toInstant();
   }
 
-  @FlaggedApi("com.android.net.thread.flags.thread_enabled") public final class PendingOperationalDataset implements android.os.Parcelable {
+  public final class PendingOperationalDataset implements android.os.Parcelable {
     ctor public PendingOperationalDataset(@NonNull android.net.thread.ActiveOperationalDataset, @NonNull android.net.thread.OperationalDatasetTimestamp, @NonNull java.time.Duration);
     method public int describeContents();
     method @NonNull public static android.net.thread.PendingOperationalDataset fromThreadTlvs(@NonNull byte[]);
@@ -492,12 +491,58 @@ package android.net.thread {
     field @NonNull public static final android.os.Parcelable.Creator<android.net.thread.PendingOperationalDataset> CREATOR;
   }
 
-  @FlaggedApi("com.android.net.thread.flags.thread_enabled") public final class ThreadNetworkController {
+  public final class ThreadNetworkController {
+    method public void createRandomizedDataset(@NonNull String, @NonNull java.util.concurrent.Executor, @NonNull android.os.OutcomeReceiver<android.net.thread.ActiveOperationalDataset,android.net.thread.ThreadNetworkException>);
     method public int getThreadVersion();
+    method public static boolean isAttached(int);
+    method @RequiresPermission("android.permission.THREAD_NETWORK_PRIVILEGED") public void join(@NonNull android.net.thread.ActiveOperationalDataset, @NonNull java.util.concurrent.Executor, @NonNull android.os.OutcomeReceiver<java.lang.Void,android.net.thread.ThreadNetworkException>);
+    method @RequiresPermission("android.permission.THREAD_NETWORK_PRIVILEGED") public void leave(@NonNull java.util.concurrent.Executor, @NonNull android.os.OutcomeReceiver<java.lang.Void,android.net.thread.ThreadNetworkException>);
+    method @RequiresPermission(allOf={android.Manifest.permission.ACCESS_NETWORK_STATE, "android.permission.THREAD_NETWORK_PRIVILEGED"}) public void registerOperationalDatasetCallback(@NonNull java.util.concurrent.Executor, @NonNull android.net.thread.ThreadNetworkController.OperationalDatasetCallback);
+    method @RequiresPermission(android.Manifest.permission.ACCESS_NETWORK_STATE) public void registerStateCallback(@NonNull java.util.concurrent.Executor, @NonNull android.net.thread.ThreadNetworkController.StateCallback);
+    method @RequiresPermission("android.permission.THREAD_NETWORK_PRIVILEGED") public void scheduleMigration(@NonNull android.net.thread.PendingOperationalDataset, @NonNull java.util.concurrent.Executor, @NonNull android.os.OutcomeReceiver<java.lang.Void,android.net.thread.ThreadNetworkException>);
+    method @RequiresPermission("android.permission.THREAD_NETWORK_PRIVILEGED") public void setEnabled(boolean, @NonNull java.util.concurrent.Executor, @NonNull android.os.OutcomeReceiver<java.lang.Void,android.net.thread.ThreadNetworkException>);
+    method @RequiresPermission(allOf={android.Manifest.permission.ACCESS_NETWORK_STATE, "android.permission.THREAD_NETWORK_PRIVILEGED"}) public void unregisterOperationalDatasetCallback(@NonNull android.net.thread.ThreadNetworkController.OperationalDatasetCallback);
+    method @RequiresPermission(android.Manifest.permission.ACCESS_NETWORK_STATE) public void unregisterStateCallback(@NonNull android.net.thread.ThreadNetworkController.StateCallback);
+    field public static final int DEVICE_ROLE_CHILD = 2; // 0x2
+    field public static final int DEVICE_ROLE_DETACHED = 1; // 0x1
+    field public static final int DEVICE_ROLE_LEADER = 4; // 0x4
+    field public static final int DEVICE_ROLE_ROUTER = 3; // 0x3
+    field public static final int DEVICE_ROLE_STOPPED = 0; // 0x0
+    field public static final int STATE_DISABLED = 0; // 0x0
+    field public static final int STATE_DISABLING = 2; // 0x2
+    field public static final int STATE_ENABLED = 1; // 0x1
     field public static final int THREAD_VERSION_1_3 = 4; // 0x4
   }
 
-  @FlaggedApi("com.android.net.thread.flags.thread_enabled") public final class ThreadNetworkManager {
+  public static interface ThreadNetworkController.OperationalDatasetCallback {
+    method public void onActiveOperationalDatasetChanged(@Nullable android.net.thread.ActiveOperationalDataset);
+    method public default void onPendingOperationalDatasetChanged(@Nullable android.net.thread.PendingOperationalDataset);
+  }
+
+  public static interface ThreadNetworkController.StateCallback {
+    method public void onDeviceRoleChanged(int);
+    method public default void onPartitionIdChanged(long);
+    method public default void onThreadEnableStateChanged(int);
+  }
+
+  public class ThreadNetworkException extends java.lang.Exception {
+    ctor public ThreadNetworkException(int, @NonNull String);
+    method public int getErrorCode();
+    field public static final int ERROR_ABORTED = 2; // 0x2
+    field public static final int ERROR_BUSY = 5; // 0x5
+    field public static final int ERROR_FAILED_PRECONDITION = 6; // 0x6
+    field public static final int ERROR_INTERNAL_ERROR = 1; // 0x1
+    field public static final int ERROR_REJECTED_BY_PEER = 8; // 0x8
+    field public static final int ERROR_RESOURCE_EXHAUSTED = 10; // 0xa
+    field public static final int ERROR_RESPONSE_BAD_FORMAT = 9; // 0x9
+    field public static final int ERROR_THREAD_DISABLED = 12; // 0xc
+    field public static final int ERROR_TIMEOUT = 3; // 0x3
+    field public static final int ERROR_UNAVAILABLE = 4; // 0x4
+    field public static final int ERROR_UNKNOWN = 11; // 0xb
+    field public static final int ERROR_UNSUPPORTED_CHANNEL = 7; // 0x7
+  }
+
+  public final class ThreadNetworkManager {
     method @NonNull public java.util.List<android.net.thread.ThreadNetworkController> getAllThreadNetworkControllers();
   }
 
