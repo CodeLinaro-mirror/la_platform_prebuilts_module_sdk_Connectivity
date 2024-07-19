@@ -1,18 +1,6 @@
 drops {
   android_build_drop {
-<<<<<<< HEAD
-<<<<<<< HEAD
-    build_id: "T1009772"
-||||||| merged common ancestors
-    build_id: "T1010120"
-=======
-    build_id: "T1010137"
->>>>>>> 0f21576e413e5729afa15778564a157b4c2c970f
-||||||| 0f21576
-    build_id: "T1010137"
-=======
-    build_id: "T1010146"
->>>>>>> 3e53c0f3ee6b926bd403ef49c744209d22351578
+    build_id: "T1010148"
     target: "train_build"
     source_file: "mainline-sdks/for-latest-build/current/com.google.android.tethering/sdk/tethering-module-sdk-current.zip"
   }
