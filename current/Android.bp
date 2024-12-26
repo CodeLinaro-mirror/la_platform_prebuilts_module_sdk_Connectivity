@@ -260,7 +260,7 @@ cc_prebuilt_library_shared {
     apex_available: ["com.android.tethering"],
     licenses: ["tethering-module-sdk_Android-Apache-2.0"],
     compile_multilib: "both",
-    export_include_dirs: ["include/packages/modules/Connectivity/netd/include"],
+    export_include_dirs: ["include/packages/modules/Connectivity/bpf/netd/include"],
     sanitize: {
         cfi: true,
     },
