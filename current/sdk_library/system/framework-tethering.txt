@@ -20,9 +20,9 @@ package android.net {
   }
 
   public class TetheringManager {
-    method @RequiresPermission(anyOf={android.Manifest.permission.TETHER_PRIVILEGED, android.Manifest.permission.WRITE_SETTINGS}) public void requestLatestTetheringEntitlementResult(int, boolean, @NonNull java.util.concurrent.Executor, @NonNull android.net.TetheringManager.OnTetheringEntitlementResultListener);
-    method @RequiresPermission(anyOf={android.Manifest.permission.TETHER_PRIVILEGED, android.Manifest.permission.WRITE_SETTINGS}) public void stopAllTethering();
-    method @RequiresPermission(anyOf={android.Manifest.permission.TETHER_PRIVILEGED, android.Manifest.permission.WRITE_SETTINGS}) public void stopTethering(int);
+    method @RequiresPermission(android.Manifest.permission.TETHER_PRIVILEGED) public void requestLatestTetheringEntitlementResult(int, boolean, @NonNull java.util.concurrent.Executor, @NonNull android.net.TetheringManager.OnTetheringEntitlementResultListener);
+    method @RequiresPermission(android.Manifest.permission.TETHER_PRIVILEGED) public void stopAllTethering();
+    method @RequiresPermission(android.Manifest.permission.TETHER_PRIVILEGED) public void stopTethering(int);
     field @Deprecated public static final String ACTION_TETHER_STATE_CHANGED = "android.net.conn.TETHER_STATE_CHANGED";
     field public static final int CONNECTIVITY_SCOPE_LOCAL = 2; // 0x2
     field public static final String EXTRA_ACTIVE_LOCAL_ONLY = "android.net.extra.ACTIVE_LOCAL_ONLY";
@@ -59,23 +59,18 @@ package android.net {
   }
 
   public static final class TetheringManager.TetheringRequest implements android.os.Parcelable {
-    method public int describeContents();
     method @Nullable public android.net.LinkAddress getClientStaticIpv4Address();
     method public int getConnectivityScope();
     method @Nullable public android.net.LinkAddress getLocalIpv4Address();
     method public boolean getShouldShowEntitlementUi();
-    method @Nullable public android.net.wifi.SoftApConfiguration getSoftApConfiguration();
     method public int getTetheringType();
     method public boolean isExemptFromEntitlementCheck();
-    method public void writeToParcel(@NonNull android.os.Parcel, int);
-    field @NonNull public static final android.os.Parcelable.Creator<android.net.TetheringManager.TetheringRequest> CREATOR;
   }
 
   public static class TetheringManager.TetheringRequest.Builder {
     method @NonNull @RequiresPermission(android.Manifest.permission.TETHER_PRIVILEGED) public android.net.TetheringManager.TetheringRequest.Builder setConnectivityScope(int);
     method @NonNull @RequiresPermission(android.Manifest.permission.TETHER_PRIVILEGED) public android.net.TetheringManager.TetheringRequest.Builder setExemptFromEntitlementCheck(boolean);
     method @NonNull @RequiresPermission(android.Manifest.permission.TETHER_PRIVILEGED) public android.net.TetheringManager.TetheringRequest.Builder setShouldShowEntitlementUi(boolean);
-    method @NonNull @RequiresPermission(android.Manifest.permission.TETHER_PRIVILEGED) public android.net.TetheringManager.TetheringRequest.Builder setSoftApConfiguration(@Nullable android.net.wifi.SoftApConfiguration);
     method @NonNull @RequiresPermission(android.Manifest.permission.TETHER_PRIVILEGED) public android.net.TetheringManager.TetheringRequest.Builder setStaticIpv4Addresses(@NonNull android.net.LinkAddress, @NonNull android.net.LinkAddress);
   }
 
