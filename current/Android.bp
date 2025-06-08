@@ -212,6 +212,12 @@ license {
     license_text: ["licenses/build/soong/licenses/LICENSE"],
 }
 
+license {
+    name: "tethering-module-sdk_opensourcerequest",
+    visibility: ["//visibility:private"],
+    license_text: ["licenses/build/soong/licenses/opensourcerequest"],
+}
+
 cc_prebuilt_library_shared {
     name: "libcom.android.tethering.dns_helper",
     // Do not prefer prebuilt if the Soong config variable "source_build" in namespace "tethering_module" is true.
