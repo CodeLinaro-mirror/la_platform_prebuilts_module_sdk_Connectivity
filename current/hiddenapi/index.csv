@@ -52,8 +52,8 @@ Landroid/net/EthernetManager;->isAvailable()Z,packages/modules/Connectivity/fram
 Landroid/net/EthernetManager;->isAvailable(Ljava/lang/String;)Z,packages/modules/Connectivity/framework-t/src/android/net/EthernetManager.java,229,5,229,88,maxTargetSdk=30&trackingBug=170729553L
 Landroid/net/EthernetManager;->addListener(Landroid/net/EthernetManager$Listener;)V,packages/modules/Connectivity/framework-t/src/android/net/EthernetManager.java,246,5,246,88,maxTargetSdk=30&trackingBug=170729553L
 Landroid/net/EthernetManager;->addListener(Landroid/net/EthernetManager$Listener;Ljava/util/concurrent/Executor;)V,packages/modules/Connectivity/framework-t/src/android/net/EthernetManager.java,260,5,260,88,maxTargetSdk=30&trackingBug=170729553L
-Landroid/net/EthernetManager;->getAvailableInterfaces()[Ljava/lang/String;,packages/modules/Connectivity/framework-t/src/android/net/EthernetManager.java,350,5,350,88,maxTargetSdk=30&trackingBug=170729553L
-Landroid/net/EthernetManager;->removeListener(Landroid/net/EthernetManager$Listener;)V,packages/modules/Connectivity/framework-t/src/android/net/EthernetManager.java,390,5,390,88,maxTargetSdk=30&trackingBug=170729553L
+Landroid/net/EthernetManager;->getAvailableInterfaces()[Ljava/lang/String;,packages/modules/Connectivity/framework-t/src/android/net/EthernetManager.java,319,5,319,88,maxTargetSdk=30&trackingBug=170729553L
+Landroid/net/EthernetManager;->removeListener(Landroid/net/EthernetManager$Listener;)V,packages/modules/Connectivity/framework-t/src/android/net/EthernetManager.java,359,5,359,88,maxTargetSdk=30&trackingBug=170729553L
 Landroid/net/IConnectivityManager;->getActiveNetworkInfo()Landroid/net/NetworkInfo;,packages/modules/Connectivity/framework/src/android/net/IConnectivityManager.aidl,62,1,62,25,
 Landroid/net/IConnectivityManager;->getNetworkInfo(I)Landroid/net/NetworkInfo;,packages/modules/Connectivity/framework/src/android/net/IConnectivityManager.aidl,65,1,65,44,maxTargetSdk=28
 Landroid/net/IConnectivityManager;->getAllNetworkInfo()[Landroid/net/NetworkInfo;,packages/modules/Connectivity/framework/src/android/net/IConnectivityManager.aidl,68,1,68,25,
