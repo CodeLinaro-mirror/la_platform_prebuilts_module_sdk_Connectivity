@@ -27,6 +27,7 @@ android/nearby/ScanRequest
 android/nearby/aidl/**
 android/net/CaptivePortal
 android/net/CaptivePortalData
+android/net/ConnectivityCallListenerService
 android/net/ConnectivityDiagnosticsManager
 android/net/ConnectivityFrameworkInitializer
 android/net/ConnectivityFrameworkInitializerBaklava
@@ -154,6 +155,8 @@ android/net/http/HttpException
 android/net/http/InlineExecutionProhibitedException
 android/net/http/NetworkException
 android/net/http/NetworkExceptionWrapper
+android/net/http/Proxy
+android/net/http/ProxyOptions
 android/net/http/QuicException
 android/net/http/QuicExceptionWrapper
 android/net/http/QuicOptions
