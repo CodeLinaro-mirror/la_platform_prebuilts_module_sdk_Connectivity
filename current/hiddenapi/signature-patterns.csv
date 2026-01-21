@@ -136,6 +136,7 @@ android/net/http/BidirectionalStreamWrapper
 android/net/http/CallbackException
 android/net/http/CallbackExceptionWrapper
 android/net/http/ConnectionMigrationOptions
+android/net/http/CronetEngineBuilderWrapper
 android/net/http/CronetEngineWrapper
 android/net/http/CronetExceptionTranslationUtils
 android/net/http/CronetExceptionWrapper
@@ -151,6 +152,7 @@ android/net/http/HeaderBlockWrapper
 android/net/http/HttpEngine
 android/net/http/HttpEngineJavaClasses
 android/net/http/HttpException
+android/net/http/IHttpEngineBuilder
 android/net/http/InlineExecutionProhibitedException
 android/net/http/NetworkException
 android/net/http/NetworkExceptionWrapper
