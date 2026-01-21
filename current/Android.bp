@@ -12,8 +12,8 @@ apex_contributions_defaults {
         "prebuilt_connectivity-platform-compat-config",
         "prebuilt_framework-connectivity",
         "prebuilt_framework-connectivity-t",
-        "prebuilt_framework-tethering",
         "prebuilt_framework-connectivity-b",
+        "prebuilt_framework-tethering",
         "prebuilt_libcom.android.tethering.dns_helper",
         "prebuilt_libnetd_updatable",
     ],
@@ -27,8 +27,8 @@ prebuilt_bootclasspath_fragment {
     contents: [
         "framework-connectivity",
         "framework-connectivity-t",
-        "framework-tethering",
         "framework-connectivity-b",
+        "framework-tethering",
     ],
     fragments: [
         {
@@ -136,39 +136,6 @@ java_sdk_library_import {
 }
 
 java_sdk_library_import {
-    name: "framework-tethering",
-    visibility: ["//visibility:public"],
-    apex_available: ["com.android.tethering"],
-    licenses: ["tethering-module-sdk_Android-Apache-2.0"],
-    shared_library: false,
-    permitted_packages: ["android.net"],
-    public: {
-        jars: ["sdk_library/public/framework-tethering-stubs.jar"],
-        stub_srcs: ["sdk_library/public/framework-tethering.srcjar"],
-        current_api: "sdk_library/public/framework-tethering.txt",
-        removed_api: "sdk_library/public/framework-tethering-removed.txt",
-        annotations: "sdk_library/public/framework-tethering_annotations.zip",
-        sdk_version: "module_current",
-    },
-    system: {
-        jars: ["sdk_library/system/framework-tethering-stubs.jar"],
-        stub_srcs: ["sdk_library/system/framework-tethering.srcjar"],
-        current_api: "sdk_library/system/framework-tethering.txt",
-        removed_api: "sdk_library/system/framework-tethering-removed.txt",
-        annotations: "sdk_library/system/framework-tethering_annotations.zip",
-        sdk_version: "module_current",
-    },
-    module_lib: {
-        jars: ["sdk_library/module-lib/framework-tethering-stubs.jar"],
-        stub_srcs: ["sdk_library/module-lib/framework-tethering.srcjar"],
-        current_api: "sdk_library/module-lib/framework-tethering.txt",
-        removed_api: "sdk_library/module-lib/framework-tethering-removed.txt",
-        annotations: "sdk_library/module-lib/framework-tethering_annotations.zip",
-        sdk_version: "module_current",
-    },
-}
-
-java_sdk_library_import {
     name: "framework-connectivity-b",
     visibility: ["//visibility:public"],
     apex_available: ["com.android.tethering"],
@@ -201,6 +168,39 @@ java_sdk_library_import {
         current_api: "sdk_library/module-lib/framework-connectivity-b.txt",
         removed_api: "sdk_library/module-lib/framework-connectivity-b-removed.txt",
         annotations: "sdk_library/module-lib/framework-connectivity-b_annotations.zip",
+        sdk_version: "module_current",
+    },
+}
+
+java_sdk_library_import {
+    name: "framework-tethering",
+    visibility: ["//visibility:public"],
+    apex_available: ["com.android.tethering"],
+    licenses: ["tethering-module-sdk_Android-Apache-2.0"],
+    shared_library: false,
+    permitted_packages: ["android.net"],
+    public: {
+        jars: ["sdk_library/public/framework-tethering-stubs.jar"],
+        stub_srcs: ["sdk_library/public/framework-tethering.srcjar"],
+        current_api: "sdk_library/public/framework-tethering.txt",
+        removed_api: "sdk_library/public/framework-tethering-removed.txt",
+        annotations: "sdk_library/public/framework-tethering_annotations.zip",
+        sdk_version: "module_current",
+    },
+    system: {
+        jars: ["sdk_library/system/framework-tethering-stubs.jar"],
+        stub_srcs: ["sdk_library/system/framework-tethering.srcjar"],
+        current_api: "sdk_library/system/framework-tethering.txt",
+        removed_api: "sdk_library/system/framework-tethering-removed.txt",
+        annotations: "sdk_library/system/framework-tethering_annotations.zip",
+        sdk_version: "module_current",
+    },
+    module_lib: {
+        jars: ["sdk_library/module-lib/framework-tethering-stubs.jar"],
+        stub_srcs: ["sdk_library/module-lib/framework-tethering.srcjar"],
+        current_api: "sdk_library/module-lib/framework-tethering.txt",
+        removed_api: "sdk_library/module-lib/framework-tethering-removed.txt",
+        annotations: "sdk_library/module-lib/framework-tethering_annotations.zip",
         sdk_version: "module_current",
     },
 }
