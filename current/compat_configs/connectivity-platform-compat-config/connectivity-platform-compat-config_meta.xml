@@ -12,9 +12,6 @@
   <compat-change enableAfterTargetSdk="33" id="270306772" name="ENABLE_PLATFORM_MDNS_BACKEND">
     <meta-data definedIn="android.net.connectivity.ConnectivityCompatChanges" />
   </compat-change>
-  <compat-change enableAfterTargetSdk="36" id="450699352" name="ALLOW_UNREGISTER_INACTIVE_NSD_MANAGER_LISTENERS">
-    <meta-data definedIn="android.net.connectivity.ConnectivityCompatChanges" />
-  </compat-change>
   <compat-change enableAfterTargetSdk="34" id="319212206" name="ENABLE_MATCH_LOCAL_NETWORK">
     <meta-data definedIn="android.net.connectivity.ConnectivityCompatChanges" />
   </compat-change>
