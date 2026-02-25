@@ -130,6 +130,7 @@ android/net/UnderlyingNetworkInfo
 android/net/VpnTransportInfo
 android/net/apf/**
 android/net/connectivity/**
+android/net/dns/**
 android/net/http/BidirectionalStream
 android/net/http/BidirectionalStreamBuilderWrapper
 android/net/http/BidirectionalStreamCallbackWrapper
