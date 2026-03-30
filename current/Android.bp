@@ -33,7 +33,14 @@ prebuilt_bootclasspath_fragment {
             apex: "com.android.art",
             module: "art-bootclasspath-fragment",
         },
+        {
+            apex: "com.android.telephonycore",
+            module: "com.android.telephony-bootclasspath-fragment",
+        },
     ],
+    dex_preopt: {
+        profile_guided: true,
+    },
     hidden_api: {
         unsupported: [
             "hiddenapi/hiddenapi-unsupported.txt",
