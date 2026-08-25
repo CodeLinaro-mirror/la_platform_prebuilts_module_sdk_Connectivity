@@ -422,6 +422,7 @@ Landroid/net/ConnectivityManager$4;->onUpstreamChanged(Landroid/net/Network;)V,s
 Landroid/net/ConnectivityManager$5$$ExternalSyntheticLambda0;->run()V,core-platform-api,public-api,system-api,test-api
 Landroid/net/ConnectivityManager$5;->onReceiveResult(ILandroid/os/Bundle;)V,public-api,system-api,test-api
 Landroid/net/ConnectivityManager$6$$ExternalSyntheticLambda0;->run()V,core-platform-api,public-api,system-api,test-api
+Landroid/net/ConnectivityManager$8;->onLost(Landroid/net/Network;)V,public-api,system-api,test-api
 Landroid/net/ConnectivityManager$CallbackHandler;->handleMessage(Landroid/os/Message;)V,public-api,system-api,test-api
 Landroid/net/ConnectivityManager$LegacyRequest$1;->onAvailable(Landroid/net/Network;)V,public-api,system-api,test-api
 Landroid/net/ConnectivityManager$LegacyRequest$1;->onLost(Landroid/net/Network;)V,public-api,system-api,test-api
@@ -2065,7 +2066,6 @@ Landroid/net/connectivity/android/net/nsd/IOffloadEngine$Default;->asBinder()Lan
 Landroid/net/connectivity/android/net/nsd/IOffloadEngine$Stub$Proxy;->asBinder()Landroid/os/IBinder;,public-api,system-api,test-api
 Landroid/net/connectivity/android/net/nsd/IOffloadEngine$Stub;->asBinder()Landroid/os/IBinder;,public-api,system-api,test-api
 Landroid/net/connectivity/android/net/nsd/IOffloadEngine$Stub;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z,public-api,system-api,test-api
-Landroid/net/connectivity/android/net/platform/flags/CustomFeatureFlags$$ExternalSyntheticLambda10;->test(Ljava/lang/Object;)Z,core-platform-api,public-api,system-api,test-api
 Landroid/net/connectivity/android/net/platform/flags/CustomFeatureFlags$$ExternalSyntheticLambda1;->test(Ljava/lang/Object;)Z,core-platform-api,public-api,system-api,test-api
 Landroid/net/connectivity/android/net/platform/flags/CustomFeatureFlags$$ExternalSyntheticLambda2;->test(Ljava/lang/Object;)Z,core-platform-api,public-api,system-api,test-api
 Landroid/net/connectivity/android/net/platform/flags/CustomFeatureFlags$$ExternalSyntheticLambda3;->test(Ljava/lang/Object;)Z,core-platform-api,public-api,system-api,test-api
@@ -2190,7 +2190,12 @@ Landroid/net/connectivity/android/permission/flags/CustomFeatureFlags$$ExternalS
 Landroid/net/connectivity/android/permission/flags/CustomFeatureFlags$$ExternalSyntheticLambda64;->test(Ljava/lang/Object;)Z,core-platform-api,public-api,system-api,test-api
 Landroid/net/connectivity/android/permission/flags/CustomFeatureFlags$$ExternalSyntheticLambda65;->test(Ljava/lang/Object;)Z,core-platform-api,public-api,system-api,test-api
 Landroid/net/connectivity/android/permission/flags/CustomFeatureFlags$$ExternalSyntheticLambda66;->test(Ljava/lang/Object;)Z,core-platform-api,public-api,system-api,test-api
+Landroid/net/connectivity/android/permission/flags/CustomFeatureFlags$$ExternalSyntheticLambda67;->test(Ljava/lang/Object;)Z,core-platform-api,public-api,system-api,test-api
+Landroid/net/connectivity/android/permission/flags/CustomFeatureFlags$$ExternalSyntheticLambda68;->test(Ljava/lang/Object;)Z,core-platform-api,public-api,system-api,test-api
+Landroid/net/connectivity/android/permission/flags/CustomFeatureFlags$$ExternalSyntheticLambda69;->test(Ljava/lang/Object;)Z,core-platform-api,public-api,system-api,test-api
 Landroid/net/connectivity/android/permission/flags/CustomFeatureFlags$$ExternalSyntheticLambda6;->test(Ljava/lang/Object;)Z,core-platform-api,public-api,system-api,test-api
+Landroid/net/connectivity/android/permission/flags/CustomFeatureFlags$$ExternalSyntheticLambda70;->test(Ljava/lang/Object;)Z,core-platform-api,public-api,system-api,test-api
+Landroid/net/connectivity/android/permission/flags/CustomFeatureFlags$$ExternalSyntheticLambda71;->test(Ljava/lang/Object;)Z,core-platform-api,public-api,system-api,test-api
 Landroid/net/connectivity/android/permission/flags/CustomFeatureFlags$$ExternalSyntheticLambda7;->test(Ljava/lang/Object;)Z,core-platform-api,public-api,system-api,test-api
 Landroid/net/connectivity/android/permission/flags/CustomFeatureFlags$$ExternalSyntheticLambda8;->test(Ljava/lang/Object;)Z,core-platform-api,public-api,system-api,test-api
 Landroid/net/connectivity/android/permission/flags/CustomFeatureFlags$$ExternalSyntheticLambda9;->test(Ljava/lang/Object;)Z,core-platform-api,public-api,system-api,test-api
@@ -2336,6 +2341,7 @@ Landroid/net/connectivity/com/android/org/conscrypt/net/flags/CustomFeatureFlags
 Landroid/net/connectivity/com/android/org/conscrypt/net/flags/CustomFeatureFlags$$ExternalSyntheticLambda1;->test(Ljava/lang/Object;)Z,core-platform-api,public-api,system-api,test-api
 Landroid/net/connectivity/com/android/org/conscrypt/net/flags/CustomFeatureFlags$$ExternalSyntheticLambda2;->test(Ljava/lang/Object;)Z,core-platform-api,public-api,system-api,test-api
 Landroid/net/connectivity/com/android/org/conscrypt/net/flags/CustomFeatureFlags$$ExternalSyntheticLambda3;->test(Ljava/lang/Object;)Z,core-platform-api,public-api,system-api,test-api
+Landroid/net/connectivity/com/android/org/conscrypt/net/flags/CustomFeatureFlags$$ExternalSyntheticLambda4;->test(Ljava/lang/Object;)Z,core-platform-api,public-api,system-api,test-api
 Landroid/net/dns/HttpsEndpoint;->getHttpsRecords()Ljava/util/List;,public-api,system-api,test-api
 Landroid/net/dns/HttpsEndpoint;->getIpAddresses()Ljava/util/List;,public-api,system-api,test-api
 Landroid/net/dns/HttpsRecord;->DEFAULT_ALPN_ID:Ljava/lang/String;,public-api,system-api,test-api
@@ -2370,6 +2376,7 @@ Landroid/net/http/BidirectionalStream;->STREAM_PRIORITY_LOWEST:I,public-api,syst
 Landroid/net/http/BidirectionalStream;->STREAM_PRIORITY_MEDIUM:I,public-api,system-api,test-api
 Landroid/net/http/BidirectionalStream;->cancel()V,public-api,system-api,test-api
 Landroid/net/http/BidirectionalStream;->flush()V,public-api,system-api,test-api
+Landroid/net/http/BidirectionalStream;->getFinishedRequestTimings()Landroid/net/http/FinishedRequestTimings;,public-api,system-api,test-api
 Landroid/net/http/BidirectionalStream;->getHeaders()Landroid/net/http/HeaderBlock;,public-api,system-api,test-api
 Landroid/net/http/BidirectionalStream;->getHttpMethod()Ljava/lang/String;,public-api,system-api,test-api
 Landroid/net/http/BidirectionalStream;->getPriority()I,public-api,system-api,test-api
@@ -2405,6 +2412,7 @@ Landroid/net/http/BidirectionalStreamBuilderWrapper;->setTrafficStatsTag(I)Landr
 Landroid/net/http/BidirectionalStreamBuilderWrapper;->setTrafficStatsUid(I)Landroid/net/http/BidirectionalStream$Builder;,public-api,system-api,test-api
 Landroid/net/http/BidirectionalStreamWrapper;->cancel()V,public-api,system-api,test-api
 Landroid/net/http/BidirectionalStreamWrapper;->flush()V,public-api,system-api,test-api
+Landroid/net/http/BidirectionalStreamWrapper;->getFinishedRequestTimings()Landroid/net/http/FinishedRequestTimings;,public-api,system-api,test-api
 Landroid/net/http/BidirectionalStreamWrapper;->getHeaders()Landroid/net/http/HeaderBlock;,public-api,system-api,test-api
 Landroid/net/http/BidirectionalStreamWrapper;->getHttpMethod()Ljava/lang/String;,public-api,system-api,test-api
 Landroid/net/http/BidirectionalStreamWrapper;->getPriority()I,public-api,system-api,test-api
@@ -2462,6 +2470,19 @@ Landroid/net/http/DnsOptions;->getPreestablishConnectionsToStaleDnsResults()I,pu
 Landroid/net/http/DnsOptions;->getStaleDns()I,public-api,system-api,test-api
 Landroid/net/http/DnsOptions;->getStaleDnsOptions()Landroid/net/http/DnsOptions$StaleDnsOptions;,public-api,system-api,test-api
 Landroid/net/http/DnsOptions;->getUseHttpStackDnsResolver()I,public-api,system-api,test-api
+Landroid/net/http/FinishedRequestTimings;->getConnectingEnd()Ljava/time/Instant;,public-api,system-api,test-api
+Landroid/net/http/FinishedRequestTimings;->getConnectingStart()Ljava/time/Instant;,public-api,system-api,test-api
+Landroid/net/http/FinishedRequestTimings;->getDnsEnd()Ljava/time/Instant;,public-api,system-api,test-api
+Landroid/net/http/FinishedRequestTimings;->getDnsStart()Ljava/time/Instant;,public-api,system-api,test-api
+Landroid/net/http/FinishedRequestTimings;->getReceivedByteCount()J,public-api,system-api,test-api
+Landroid/net/http/FinishedRequestTimings;->getRequestEnd()Ljava/time/Instant;,public-api,system-api,test-api
+Landroid/net/http/FinishedRequestTimings;->getRequestStart()Ljava/time/Instant;,public-api,system-api,test-api
+Landroid/net/http/FinishedRequestTimings;->getSendingEnd()Ljava/time/Instant;,public-api,system-api,test-api
+Landroid/net/http/FinishedRequestTimings;->getSendingStart()Ljava/time/Instant;,public-api,system-api,test-api
+Landroid/net/http/FinishedRequestTimings;->getSentByteCount()J,public-api,system-api,test-api
+Landroid/net/http/FinishedRequestTimings;->getTlsHandshakeEnd()Ljava/time/Instant;,public-api,system-api,test-api
+Landroid/net/http/FinishedRequestTimings;->getTlsHandshakeStart()Ljava/time/Instant;,public-api,system-api,test-api
+Landroid/net/http/FinishedRequestTimings;->wasSocketReused()Z,public-api,system-api,test-api
 Landroid/net/http/HeaderBlock;-><init>()V,public-api,system-api,test-api
 Landroid/net/http/HeaderBlock;->getAsList()Ljava/util/List;,public-api,system-api,test-api
 Landroid/net/http/HeaderBlock;->getAsMap()Ljava/util/Map;,public-api,system-api,test-api
@@ -2595,6 +2616,7 @@ Landroid/net/http/UrlRequest;->REQUEST_PRIORITY_LOWEST:I,public-api,system-api,t
 Landroid/net/http/UrlRequest;->REQUEST_PRIORITY_MEDIUM:I,public-api,system-api,test-api
 Landroid/net/http/UrlRequest;->cancel()V,public-api,system-api,test-api
 Landroid/net/http/UrlRequest;->followRedirect()V,public-api,system-api,test-api
+Landroid/net/http/UrlRequest;->getFinishedRequestTimings()Landroid/net/http/FinishedRequestTimings;,public-api,system-api,test-api
 Landroid/net/http/UrlRequest;->getHeaders()Landroid/net/http/HeaderBlock;,public-api,system-api,test-api
 Landroid/net/http/UrlRequest;->getHttpMethod()Ljava/lang/String;,public-api,system-api,test-api
 Landroid/net/http/UrlRequest;->getPriority()I,public-api,system-api,test-api
@@ -2634,6 +2656,7 @@ Landroid/net/http/UrlRequestBuilderWrapper;->setTrafficStatsUid(I)Landroid/net/h
 Landroid/net/http/UrlRequestBuilderWrapper;->setUploadDataProvider(Landroid/net/http/UploadDataProvider;Ljava/util/concurrent/Executor;)Landroid/net/http/UrlRequest$Builder;,public-api,system-api,test-api
 Landroid/net/http/UrlRequestWrapper;->cancel()V,public-api,system-api,test-api
 Landroid/net/http/UrlRequestWrapper;->followRedirect()V,public-api,system-api,test-api
+Landroid/net/http/UrlRequestWrapper;->getFinishedRequestTimings()Landroid/net/http/FinishedRequestTimings;,public-api,system-api,test-api
 Landroid/net/http/UrlRequestWrapper;->getHeaders()Landroid/net/http/HeaderBlock;,public-api,system-api,test-api
 Landroid/net/http/UrlRequestWrapper;->getHttpMethod()Ljava/lang/String;,public-api,system-api,test-api
 Landroid/net/http/UrlRequestWrapper;->getPriority()I,public-api,system-api,test-api
@@ -2767,7 +2790,6 @@ Landroid/net/http/internal/org/chromium/base/JavaHandlerThread$1;->run()V,core-p
 Landroid/net/http/internal/org/chromium/base/JavaHandlerThread$2;->run()V,core-platform-api,public-api,system-api,test-api
 Landroid/net/http/internal/org/chromium/base/JavaHandlerThread$3;->uncaughtException(Ljava/lang/Thread;Ljava/lang/Throwable;)V,core-platform-api,public-api,system-api,test-api
 Landroid/net/http/internal/org/chromium/base/JniCallbackImpl;->run()V,core-platform-api,public-api,system-api,test-api
-Landroid/net/http/internal/org/chromium/base/MemoryPressureListener$$ExternalSyntheticLambda1;->run()V,core-platform-api,public-api,system-api,test-api
 Landroid/net/http/internal/org/chromium/base/ObserverList$ObserverListIterator;->hasNext()Z,core-platform-api,public-api,system-api,test-api
 Landroid/net/http/internal/org/chromium/base/ObserverList$ObserverListIterator;->next()Ljava/lang/Object;,core-platform-api,public-api,system-api,test-api
 Landroid/net/http/internal/org/chromium/base/ObserverList$ObserverListIterator;->remove()V,core-platform-api,public-api,system-api,test-api
@@ -2797,7 +2819,6 @@ Landroid/net/http/internal/org/chromium/base/UnguessableToken;->toString()Ljava/
 Landroid/net/http/internal/org/chromium/base/UnguessableToken;->writeToParcel(Landroid/os/Parcel;I)V,public-api,system-api,test-api
 Landroid/net/http/internal/org/chromium/base/lifetime/LifetimeAssert$WrappedReference$1;->run()V,core-platform-api,public-api,system-api,test-api
 Landroid/net/http/internal/org/chromium/base/memory/MemoryPurgeManager$$ExternalSyntheticLambda0;->run()V,core-platform-api,public-api,system-api,test-api
-Landroid/net/http/internal/org/chromium/base/memory/MemoryPurgeManager$$ExternalSyntheticLambda1;->run()V,core-platform-api,public-api,system-api,test-api
 Landroid/net/http/internal/org/chromium/base/metrics/ScopedSysTraceEvent;->close()V,core-platform-api,public-api,system-api,test-api
 Landroid/net/http/internal/org/chromium/base/task/ChromeThreadPoolExecutor$1;->newThread(Ljava/lang/Runnable;)Ljava/lang/Thread;,core-platform-api,public-api,system-api,test-api
 Landroid/net/http/internal/org/chromium/base/task/ChromeThreadPoolExecutor;->close()V,core-platform-api,public-api,system-api,test-api
@@ -2856,6 +2877,8 @@ Landroid/net/http/internal/org/chromium/net/X509Util$Globals$TrustStorageListene
 Landroid/net/http/internal/org/chromium/net/httpflags/ResolvedFlags$Value;->toString()Ljava/lang/String;,core-platform-api,public-api,system-api,test-api
 Landroid/net/http/internal/org/chromium/net/impl/CompletionOnceCallback;->close()V,core-platform-api,public-api,system-api,test-api
 Landroid/net/http/internal/org/chromium/net/impl/CronetAdaptiveNetworkBidirectionalStream$$ExternalSyntheticLambda0;->run()V,core-platform-api,public-api,system-api,test-api
+Landroid/net/http/internal/org/chromium/net/impl/CronetAdaptiveNetworkBidirectionalStream$$ExternalSyntheticLambda1;->run()V,core-platform-api,public-api,system-api,test-api
+Landroid/net/http/internal/org/chromium/net/impl/CronetAdaptiveRequestContext$$ExternalSyntheticLambda0;->run()V,core-platform-api,public-api,system-api,test-api
 Landroid/net/http/internal/org/chromium/net/impl/CronetBidirectionalStream$$ExternalSyntheticLambda0;->run()V,core-platform-api,public-api,system-api,test-api
 Landroid/net/http/internal/org/chromium/net/impl/CronetBidirectionalStream$$ExternalSyntheticLambda1;->run()V,core-platform-api,public-api,system-api,test-api
 Landroid/net/http/internal/org/chromium/net/impl/CronetBidirectionalStream$$ExternalSyntheticLambda2;->run()V,core-platform-api,public-api,system-api,test-api
