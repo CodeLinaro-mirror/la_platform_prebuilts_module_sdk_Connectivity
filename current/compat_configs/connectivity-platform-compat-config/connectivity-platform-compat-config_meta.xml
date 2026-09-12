@@ -33,7 +33,4 @@
   <compat-change enableAfterTargetSdk="37" id="514327662" name="ENFORCE_LOOPBACK_RESTRICTIONS">
     <meta-data definedIn="android.net.connectivity.ConnectivityCompatChanges" />
   </compat-change>
-  <compat-change enableAfterTargetSdk="37" id="491716510" name="ENFORCE_SYMMETRIC_PROXY_INFO_EQUALITY">
-    <meta-data definedIn="android.net.connectivity.ConnectivityCompatChanges" />
-  </compat-change>
 </config>
