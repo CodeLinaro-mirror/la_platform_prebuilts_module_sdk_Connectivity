@@ -142,6 +142,7 @@ android/net/http/CronetEngineWrapper
 android/net/http/CronetExceptionTranslationUtils
 android/net/http/CronetExceptionWrapper
 android/net/http/DnsOptions
+android/net/http/FinishedRequestTimings
 android/net/http/Flags
 android/net/http/HeaderBlock
 android/net/http/HeaderBlockImpl

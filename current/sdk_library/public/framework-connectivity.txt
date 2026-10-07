@@ -592,6 +592,7 @@ package android.net.http {
     ctor public BidirectionalStream();
     method public abstract void cancel();
     method public abstract void flush();
+    method @NonNull public android.net.http.FinishedRequestTimings getFinishedRequestTimings();
     method @NonNull public abstract android.net.http.HeaderBlock getHeaders();
     method @NonNull public abstract String getHttpMethod();
     method public abstract int getPriority();
@@ -691,6 +692,22 @@ package android.net.http {
     method @NonNull public android.net.http.DnsOptions.StaleDnsOptions.Builder setFreshLookupTimeout(@NonNull java.time.Duration);
     method @NonNull public android.net.http.DnsOptions.StaleDnsOptions.Builder setMaxExpiredDelay(@NonNull java.time.Duration);
     method @NonNull public android.net.http.DnsOptions.StaleDnsOptions.Builder setUseStaleOnNameNotResolved(int);
+  }
+
+  public final class FinishedRequestTimings {
+    method @Nullable public java.time.Instant getConnectingEnd();
+    method @Nullable public java.time.Instant getConnectingStart();
+    method @Nullable public java.time.Instant getDnsEnd();
+    method @Nullable public java.time.Instant getDnsStart();
+    method @IntRange(from=0) public long getReceivedByteCount();
+    method @Nullable public java.time.Instant getRequestEnd();
+    method @Nullable public java.time.Instant getRequestStart();
+    method @Nullable public java.time.Instant getSendingEnd();
+    method @Nullable public java.time.Instant getSendingStart();
+    method @IntRange(from=0) public long getSentByteCount();
+    method @Nullable public java.time.Instant getTlsHandshakeEnd();
+    method @Nullable public java.time.Instant getTlsHandshakeStart();
+    method public boolean wasSocketReused();
   }
 
   public abstract class HeaderBlock {
@@ -821,6 +838,7 @@ package android.net.http {
   public abstract class UrlRequest {
     method public abstract void cancel();
     method public abstract void followRedirect();
+    method @NonNull public android.net.http.FinishedRequestTimings getFinishedRequestTimings();
     method @NonNull public abstract android.net.http.HeaderBlock getHeaders();
     method @Nullable public abstract String getHttpMethod();
     method public abstract int getPriority();
