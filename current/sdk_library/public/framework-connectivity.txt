@@ -103,6 +103,7 @@ package android.net {
     method public void requestNetwork(@NonNull android.net.NetworkRequest, @NonNull android.net.ConnectivityManager.NetworkCallback, int);
     method public void requestNetwork(@NonNull android.net.NetworkRequest, @NonNull android.net.ConnectivityManager.NetworkCallback, @NonNull android.os.Handler, int);
     method public void requestNetwork(@NonNull android.net.NetworkRequest, @NonNull android.app.PendingIntent);
+    method public void reserveNetwork(@NonNull android.net.NetworkRequest, @NonNull android.os.Handler, @NonNull android.net.ConnectivityManager.NetworkCallback);
     method @Deprecated public void setNetworkPreference(int);
     method @Deprecated public static boolean setProcessDefaultNetwork(@Nullable android.net.Network);
     method public void unregisterNetworkCallback(@NonNull android.net.ConnectivityManager.NetworkCallback);
@@ -151,6 +152,7 @@ package android.net {
     method public void onLinkPropertiesChanged(@NonNull android.net.Network, @NonNull android.net.LinkProperties);
     method public void onLosing(@NonNull android.net.Network, int);
     method public void onLost(@NonNull android.net.Network);
+    method public void onReserved(@NonNull android.net.NetworkCapabilities);
     method public void onUnavailable();
     field public static final int FLAG_INCLUDE_LOCATION_INFO = 1; // 0x1
   }
@@ -174,9 +176,11 @@ package android.net {
   }
 
   public final class DnsResolver {
-    method @NonNull public static android.net.DnsResolver getInstance();
+    ctor public DnsResolver(@NonNull android.content.Context, @Nullable android.os.Looper);
+    method @Deprecated @NonNull public static android.net.DnsResolver getInstance();
     method public void query(@Nullable android.net.Network, @NonNull String, int, @NonNull java.util.concurrent.Executor, @Nullable android.os.CancellationSignal, @NonNull android.net.DnsResolver.Callback<? super java.util.List<java.net.InetAddress>>);
     method public void query(@Nullable android.net.Network, @NonNull String, int, int, @NonNull java.util.concurrent.Executor, @Nullable android.os.CancellationSignal, @NonNull android.net.DnsResolver.Callback<? super java.util.List<java.net.InetAddress>>);
+    method public void query(@Nullable android.net.Network, @NonNull String, int, @NonNull java.util.concurrent.Executor, int, @Nullable android.os.CancellationSignal, @NonNull android.net.DnsResolver.Callback<android.net.dns.HttpsEndpoint>);
     method public void rawQuery(@Nullable android.net.Network, @NonNull byte[], int, @NonNull java.util.concurrent.Executor, @Nullable android.os.CancellationSignal, @NonNull android.net.DnsResolver.Callback<? super byte[]>);
     method public void rawQuery(@Nullable android.net.Network, @NonNull String, int, int, int, @NonNull java.util.concurrent.Executor, @Nullable android.os.CancellationSignal, @NonNull android.net.DnsResolver.Callback<? super byte[]>);
     field public static final int CLASS_IN = 1; // 0x1
@@ -186,8 +190,12 @@ package android.net {
     field public static final int FLAG_NO_CACHE_LOOKUP = 4; // 0x4
     field public static final int FLAG_NO_CACHE_STORE = 2; // 0x2
     field public static final int FLAG_NO_RETRY = 1; // 0x1
+    field public static final int HTTPS_QUERY_WAIT_AUTO = -1; // 0xffffffff
+    field public static final int HTTPS_QUERY_WAIT_NONE = 0; // 0x0
+    field public static final int HTTPS_QUERY_WAIT_UNTIL_TIMEOUT = -2; // 0xfffffffe
     field public static final int TYPE_A = 1; // 0x1
     field public static final int TYPE_AAAA = 28; // 0x1c
+    field public static final int TYPE_HTTPS = 65; // 0x41
   }
 
   public static interface DnsResolver.Callback<T> {
@@ -229,6 +237,32 @@ package android.net {
     method @NonNull public byte[] getRawAddress();
     method public void writeToParcel(android.os.Parcel, int);
     field @NonNull public static final android.os.Parcelable.Creator<android.net.IpPrefix> CREATOR;
+  }
+
+  public final class L2capNetworkSpecifier extends android.net.NetworkSpecifier implements android.os.Parcelable {
+    method public int describeContents();
+    method public int getHeaderCompression();
+    method public int getPsm();
+    method @Nullable public android.net.MacAddress getRemoteAddress();
+    method public int getRole();
+    method public void writeToParcel(@NonNull android.os.Parcel, int);
+    field @NonNull public static final android.os.Parcelable.Creator<android.net.L2capNetworkSpecifier> CREATOR;
+    field public static final int HEADER_COMPRESSION_6LOWPAN = 2; // 0x2
+    field public static final int HEADER_COMPRESSION_ANY = 0; // 0x0
+    field public static final int HEADER_COMPRESSION_NONE = 1; // 0x1
+    field public static final int PSM_ANY = 0; // 0x0
+    field public static final int ROLE_ANY = 0; // 0x0
+    field public static final int ROLE_CLIENT = 1; // 0x1
+    field public static final int ROLE_SERVER = 2; // 0x2
+  }
+
+  public static final class L2capNetworkSpecifier.Builder {
+    ctor public L2capNetworkSpecifier.Builder();
+    method @NonNull public android.net.L2capNetworkSpecifier build();
+    method @NonNull public android.net.L2capNetworkSpecifier.Builder setHeaderCompression(int);
+    method @NonNull public android.net.L2capNetworkSpecifier.Builder setPsm(@IntRange(from=0, to=255) int);
+    method @NonNull public android.net.L2capNetworkSpecifier.Builder setRemoteAddress(@Nullable android.net.MacAddress);
+    method @NonNull public android.net.L2capNetworkSpecifier.Builder setRole(int);
   }
 
   public class LinkAddress implements android.os.Parcelable {
@@ -337,6 +371,7 @@ package android.net {
     field public static final int NET_CAPABILITY_MCX = 23; // 0x17
     field public static final int NET_CAPABILITY_MMS = 0; // 0x0
     field public static final int NET_CAPABILITY_MMTEL = 33; // 0x21
+    field public static final int NET_CAPABILITY_NOT_BANDWIDTH_CONSTRAINED = 37; // 0x25
     field public static final int NET_CAPABILITY_NOT_CONGESTED = 20; // 0x14
     field public static final int NET_CAPABILITY_NOT_METERED = 11; // 0xb
     field public static final int NET_CAPABILITY_NOT_RESTRICTED = 13; // 0xd
@@ -345,6 +380,7 @@ package android.net {
     field public static final int NET_CAPABILITY_NOT_VPN = 15; // 0xf
     field public static final int NET_CAPABILITY_PRIORITIZE_BANDWIDTH = 35; // 0x23
     field public static final int NET_CAPABILITY_PRIORITIZE_LATENCY = 34; // 0x22
+    field public static final int NET_CAPABILITY_PRIORITIZE_UNIFIED_COMMUNICATIONS = 38; // 0x26
     field public static final int NET_CAPABILITY_RCS = 8; // 0x8
     field public static final int NET_CAPABILITY_SUPL = 1; // 0x1
     field public static final int NET_CAPABILITY_TEMPORARILY_NOT_METERED = 25; // 0x19
@@ -530,12 +566,33 @@ package android.net {
 
 }
 
+package android.net.dns {
+
+  public class HttpsEndpoint {
+    method @NonNull public java.util.List<android.net.dns.HttpsRecord> getHttpsRecords();
+    method @NonNull public java.util.List<java.net.InetAddress> getIpAddresses();
+  }
+
+  public class HttpsRecord {
+    method @NonNull public java.util.List<java.lang.String> getAlpnIds();
+    method @Nullable public android.net.ssl.EchConfigList getEchConfigList() throws android.net.ssl.InvalidEchDataException;
+    method @NonNull public java.util.List<java.net.InetAddress> getIpAddressHints();
+    method @NonNull public String getOwnerName();
+    method public int getPort();
+    method @IntRange(from=0, to=65535) public int getPriority();
+    method @NonNull public String getTargetName();
+    field public static final String DEFAULT_ALPN_ID = "http/1.1";
+  }
+
+}
+
 package android.net.http {
 
   public abstract class BidirectionalStream {
     ctor public BidirectionalStream();
     method public abstract void cancel();
     method public abstract void flush();
+    method @NonNull public android.net.http.FinishedRequestTimings getFinishedRequestTimings();
     method @NonNull public abstract android.net.http.HeaderBlock getHeaders();
     method @NonNull public abstract String getHttpMethod();
     method public abstract int getPriority();
@@ -637,6 +694,22 @@ package android.net.http {
     method @NonNull public android.net.http.DnsOptions.StaleDnsOptions.Builder setUseStaleOnNameNotResolved(int);
   }
 
+  public final class FinishedRequestTimings {
+    method @Nullable public java.time.Instant getConnectingEnd();
+    method @Nullable public java.time.Instant getConnectingStart();
+    method @Nullable public java.time.Instant getDnsEnd();
+    method @Nullable public java.time.Instant getDnsStart();
+    method @IntRange(from=0) public long getReceivedByteCount();
+    method @Nullable public java.time.Instant getRequestEnd();
+    method @Nullable public java.time.Instant getRequestStart();
+    method @Nullable public java.time.Instant getSendingEnd();
+    method @Nullable public java.time.Instant getSendingStart();
+    method @IntRange(from=0) public long getSentByteCount();
+    method @Nullable public java.time.Instant getTlsHandshakeEnd();
+    method @Nullable public java.time.Instant getTlsHandshakeStart();
+    method public boolean wasSocketReused();
+  }
+
   public abstract class HeaderBlock {
     ctor public HeaderBlock();
     method @NonNull public abstract java.util.List<java.util.Map.Entry<java.lang.String,java.lang.String>> getAsList();
@@ -666,6 +739,7 @@ package android.net.http {
     method @NonNull public android.net.http.HttpEngine.Builder setEnableHttpCache(int, long);
     method @NonNull public android.net.http.HttpEngine.Builder setEnablePublicKeyPinningBypassForLocalTrustAnchors(boolean);
     method @NonNull public android.net.http.HttpEngine.Builder setEnableQuic(boolean);
+    method @NonNull public android.net.http.HttpEngine.Builder setProxyOptions(@NonNull android.net.http.ProxyOptions);
     method @NonNull public android.net.http.HttpEngine.Builder setQuicOptions(@NonNull android.net.http.QuicOptions);
     method @NonNull public android.net.http.HttpEngine.Builder setStoragePath(@NonNull String);
     method @NonNull public android.net.http.HttpEngine.Builder setUserAgent(@NonNull String);
@@ -698,6 +772,30 @@ package android.net.http {
     field public static final int ERROR_OTHER = 11; // 0xb
     field public static final int ERROR_QUIC_PROTOCOL_FAILED = 10; // 0xa
     field public static final int ERROR_TIMED_OUT = 4; // 0x4
+  }
+
+  public final class Proxy {
+    method @NonNull public static android.net.http.Proxy createHttpProxy(int, @NonNull String, @IntRange(from=0, to=65535) int, @NonNull java.util.concurrent.Executor, @NonNull android.net.http.Proxy.HttpConnectCallback);
+    field public static final int SCHEME_HTTP = 0; // 0x0
+    field public static final int SCHEME_HTTPS = 1; // 0x1
+  }
+
+  public static interface Proxy.HttpConnectCallback {
+    method public void onBeforeRequest(@NonNull android.net.http.Proxy.HttpConnectCallback.Request);
+    method public int onResponseReceived(@NonNull java.util.List<android.util.Pair<java.lang.String,java.lang.String>>, int);
+    field public static final int RESPONSE_ACTION_CLOSE = 0; // 0x0
+    field public static final int RESPONSE_ACTION_PROCEED = 1; // 0x1
+  }
+
+  public static final class Proxy.HttpConnectCallback.Request implements java.lang.AutoCloseable {
+    method public void close();
+    method public void proceed(@NonNull java.util.List<android.util.Pair<java.lang.String,java.lang.String>>);
+  }
+
+  public final class ProxyOptions {
+    method @NonNull public static android.net.http.ProxyOptions fromProxyList(@NonNull java.util.List<android.net.http.Proxy>, int);
+    field public static final int ALL_PROXIES_FAILED_BEHAVIOR_ALLOW_DIRECT = 1; // 0x1
+    field public static final int ALL_PROXIES_FAILED_BEHAVIOR_DISALLOW_DIRECT = 0; // 0x0
   }
 
   public abstract class QuicException extends android.net.http.NetworkException {
@@ -740,6 +838,7 @@ package android.net.http {
   public abstract class UrlRequest {
     method public abstract void cancel();
     method public abstract void followRedirect();
+    method @NonNull public android.net.http.FinishedRequestTimings getFinishedRequestTimings();
     method @NonNull public abstract android.net.http.HeaderBlock getHeaders();
     method @Nullable public abstract String getHttpMethod();
     method public abstract int getPriority();
